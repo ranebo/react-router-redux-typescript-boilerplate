@@ -1,4 +1,4 @@
-### react-router-redux-boilerplate
+### react-router-redux-typescript-boilerplate
 
 
 ### Todos

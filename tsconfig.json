@@ -11,13 +11,8 @@
     "rootDir": "src",
     "baseUrl": "src",
     "paths": {
-        "actions/*": [ "actions/*" ],
         "app/*": [ "app/*" ],
-        "containers/*": [ "containers/*" ],
         "lib/*": [ "lib/*" ],
-        "middleware/*": [ "middleware/*" ],
-        "reducers/*": [ "reducers/*" ],
-        "routes/*": [ "routes/*" ],
         "store/*": [ "store/*" ]
     },
     "forceConsistentCasingInFileNames": true,

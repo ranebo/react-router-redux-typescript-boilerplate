@@ -1,29 +1,89 @@
 
-.App {
-  text-align: center;
+/* App Styles */
+/* ========== */
+
+/* Appearance */
+.raised {
+  box-shadow: 5px 5px 25px 0 rgba(46,61,73,.2);
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+/* For Mouse */
+.clickable {
+  cursor: pointer!important;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
+/* Dimensions */
+.expand {
+  width: 100%!important;
+}
+
+/* Positioning */
+.pull-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-left:after, .pull-right:after {
+  clear: both;
+}
+
+/* Spacing */
+
+.lg-pad {
   padding: 20px;
+}
+
+.md-pad {
+  padding: 10px;
+}
+
+.sm-pad {
+  padding: 5px;
+}
+
+.lg-marg {
+  margin: 20px;
+}
+
+.md-marg {
+  margin: 10px;
+}
+
+.sm-marg {
+  margin: 5px;
+}
+
+/* Centering */
+
+.fit-center {
+  width: max-content;
+  margin: auto;
+}
+
+.text-center {
+  text-align: center!important;
+}
+
+/* Errors */
+.error-text {
+  color: red;
+}
+
+.error-background {
+  background-color: red;
   color: white;
 }
 
-.App-title {
-  font-size: 1.5em;
+/* Interactive */
+.main-btn, .main-btn-active {
+  margin: 10px;
+  outline: none;
+  border-radius: 4px
 }
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.main-btn-active {
+  background-color: lightblue;
 }
