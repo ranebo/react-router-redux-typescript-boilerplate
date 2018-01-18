@@ -13,8 +13,8 @@ const render = (Component: React.StatelessComponent) => {
 render(Application);
 registerServiceWorker();
 
-// if (module.hot) {
-//   module.hot.accept('app', () => {
-//     render(Application);
-//   });
-// }
+if (module.hot) {
+  module.hot.accept('app', () => {
+    render(Application);
+  });
+}

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Provider } from 'react-redux';
-// import { AppContainer } from 'react-hot-loader'
+import { AppContainer } from 'react-hot-loader';
 // import { ConnectedRouter } from 'react-router-redux';
 // import { PersistGate } from 'redux-persist/es/integration/react';
 // import { history } from 'app/history';
@@ -22,18 +22,18 @@ const store = createStore(counter);
 // };
 
 const Application: React.StatelessComponent<{}> = () => (
-  // <AppContainer>
   //     <PersistGate
   //       loading={ <LoadingPage /> }
   //       onBeforeLift={ onBeforeLift }
   //       persistor={ persistor }>
   //       <ConnectedRouter history={ history }>
+  <AppContainer>
     <Provider store={store}>
           <App />
     </Provider>
+  </AppContainer>
   //       </ConnectedRouter>
   //     </PersistGate>
-  // </AppContainer>
 );
 
 export default Application;
