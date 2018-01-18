@@ -1,13 +1,13 @@
 import * as React from 'react';
 import 'app/containers/styles';
 
-import Hello from 'app/containers/HelloContainer';
+import Counter from 'app/routes/Counter';
 
 class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Hello />
+        <Counter />
       </div>
     );
   }

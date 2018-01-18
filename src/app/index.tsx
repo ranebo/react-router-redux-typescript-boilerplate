@@ -10,13 +10,10 @@ import App from 'app/containers/App';
 import 'app/app-styles';
 
 import { createStore } from 'redux';
-import { enthusiasm } from '../reducers/index';
-import { StoreState } from '../types/index';
+import { counter } from 'store/reducers/all/counterReducer';
+// import { Store } from 'store/types';
 
-const store = createStore<StoreState>(enthusiasm, {
-  enthusiasmLevel: 1,
-  languageName: 'TypeScript',
-});
+const store = createStore(counter);
 
 // const { persistor, store } = configureStore();
 
