@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "build/dist",
+    "typeRoots": [ "node_modules/@types/" ],
     "module": "esnext",
     "target": "es5",
     "lib": ["es6", "dom"],
