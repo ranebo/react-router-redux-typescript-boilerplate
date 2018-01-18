@@ -1,5 +1,3 @@
-// src/components/Hello.test.tsx
-
 import * as React from 'react';
 import * as enzyme from 'enzyme';
 import Hello from 'app/containers/Hello';

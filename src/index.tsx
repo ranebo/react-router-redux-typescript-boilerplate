@@ -1,23 +1,20 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import App from 'app/containers/App';
+import Application from 'app';
 import registerServiceWorker from './registerServiceWorker';
 import './base-styles';
 
-import { createStore } from 'redux';
-import { enthusiasm } from './reducers/index';
-import { StoreState } from './types/index';
-import { Provider } from 'react-redux';
+const rootEl = document.getElementById('root') as HTMLElement;
 
-const store = createStore<StoreState>(enthusiasm, {
-  enthusiasmLevel: 1,
-  languageName: 'TypeScript',
-});
+const render = (Component: React.StatelessComponent) => {
+  ReactDOM.render(<Component />, rootEl);
+};
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root') as HTMLElement
-);
+render(Application);
 registerServiceWorker();
+
+// if (module.hot) {
+//   module.hot.accept('app', () => {
+//     render(Application);
+//   });
+// }
