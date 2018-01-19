@@ -19,7 +19,7 @@ const Counter = ({ count, increment, decrement }: CounterProps) => (
   </section>
 );
 
-const mapStateToProps = (counter: Store.Counter) => ({
+const mapStateToProps = ({ counter }: Store.All) => ({
   count: counter.value,
 });
 
