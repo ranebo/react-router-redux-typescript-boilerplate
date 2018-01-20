@@ -1,8 +1,9 @@
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware, compose, Middleware, GenericStoreEnhancer } from 'redux';
 import { persistStore } from 'redux-persist';
+// import { PersistedState } from "redux-persist/es/types";
+import { StoreState } from 'store/types';
 import thunk from 'redux-thunk';
-import rootReducer from 'store/reducers';
-import { Store } from 'store/types';
+import { rootReducer } from 'store/reducers';
 
 // import { createLogger } from 'redux-logger'
 // import { historyMiddleware } from 'app/history';
@@ -10,32 +11,24 @@ import { Store } from 'store/types';
 // import api from 'store/middleware/api'
 
 // Helper function to compile store args:
-// createStore(
-//   rootReducer,
-//   preloadedState,
-//   compose(applyMiddleware(middleware1, middlware2, ...middlewareDev),
-//    ...composeDev)
-// );
-const compileStoreArgs = (
-  rReducer,
-  preloadedState,
-  middlewareArgs,
-  devMiddlewareArgs,
-  composeArgs,
-  composeDevArgs
+// compose(applyMiddleware(middleware1, middlware2, ...middlewareDev), ...composeDev)
+
+const compileEnhancers = (
+  middlewareArgs: Middleware[],
+  devMiddlewareArgs: Middleware[],
+  composeArgs: GenericStoreEnhancer[],
+  composeDevArgs: GenericStoreEnhancer[]
   ) => {
   const isDev = process.env.NODE_ENV;
   if (isDev) { middlewareArgs = middlewareArgs.concat(devMiddlewareArgs); }
   composeArgs = [applyMiddleware(...middlewareArgs)].concat(composeArgs);
   if (isDev) { composeArgs = composeArgs.concat(composeDevArgs); }
-  return [rReducer, preloadedState, compose(...composeArgs)];
+  return compose(...composeArgs);
 };
 
-const configureStore = (preloadedState?: Store.All) => {
+const configureStore = (preloadedState?: StoreState.All) => {
 
-  const storeArgs = compileStoreArgs(
-    rootReducer,
-    preloadedState!,
+  const enhancer = compileEnhancers(
     [thunk/*, api, historyMiddleware*/], // Middleware
     [/*createLogger()*/], // Dev Middleware
     [], // Compose args
@@ -43,7 +36,7 @@ const configureStore = (preloadedState?: Store.All) => {
   );
 
   // Create Store
-  const store = createStore.apply(null, storeArgs);
+  const store = createStore(rootReducer, preloadedState, enhancer);
 
   // Persist Store
   const persistor = persistStore(store);

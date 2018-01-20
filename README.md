@@ -16,6 +16,7 @@
 - [ ] Look into [React Helmet](https://github.com/nfl/react-helmet)
 - [ ] Look into more [create-react-app features](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#using-the-public-folder)
 - [ ] Add PropTypes
+- [ ] Look into [React-Relay](http://beautifulcode.1stdibs.com/2016/09/07/reconcile-relay-redux/)
 - [ ] Complete README
 - [ ] Setup Thunk/Request Middleware
 - [ ] Setup Auth system

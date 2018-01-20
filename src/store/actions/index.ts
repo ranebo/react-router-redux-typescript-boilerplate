@@ -1,33 +1,46 @@
+// Pattern Reference: https://spin.atomicobject.com/2017/07/24/redux-action-pattern-typescript/
+export type ActionTypes =
+  | CounterAction
+  | LogoutAction
+  | OtherAction;
 
-// Action Types (Need better pattern for this, or move to constants folder)
-export const RESET_COUNTER = 'RESET_COUNTER';
-export type RESET_COUNTER = typeof RESET_COUNTER;
-export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
-export type INCREMENT_COUNTER = typeof INCREMENT_COUNTER;
-export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
-export type DECREMENT_COUNTER = typeof DECREMENT_COUNTER;
-export const USER_LOGOUT = 'USER_LOGOUT';
-export type USER_LOGOUT = typeof USER_LOGOUT;
+export enum ActionTypeKeys {
+  INCREMENT_COUNTER = 'INCREMENT_COUNTER',
+  DECREMENT_COUNTER = 'DECREMENT_COUNTER',
+  RESET_COUNTER = 'RESET_COUNTER',
+  USER_LOGOUT = 'USER_LOGOUT',
+  OTHER_ACTION = '__any_other_action_type__',
+}
 
-type MoveCounterAction = INCREMENT_COUNTER | DECREMENT_COUNTER;
+export interface OtherAction {
+  readonly type: ActionTypeKeys.OTHER_ACTION;
+}
+
+export interface LogoutAction {
+  readonly type: ActionTypeKeys.USER_LOGOUT;
+}
+
+export const logoutUser = (): LogoutAction => ({
+  type: ActionTypeKeys.USER_LOGOUT,
+});
 
 export type CounterAction = {
-  type: MoveCounterAction,
-  delta: number,
+  readonly type: ActionTypeKeys.INCREMENT_COUNTER | ActionTypeKeys.DECREMENT_COUNTER,
+  readonly delta: number,
 } | {
-  type: RESET_COUNTER,
+  readonly type: ActionTypeKeys.RESET_COUNTER,
 };
 
 export const incrementCounter = (delta: number = 1): CounterAction => ({
-  type: INCREMENT_COUNTER,
+  type: ActionTypeKeys.INCREMENT_COUNTER,
   delta,
 });
 
 export const decrementCounter = (delta: number = 1): CounterAction => ({
-  type: DECREMENT_COUNTER,
+  type: ActionTypeKeys.DECREMENT_COUNTER,
   delta,
 });
 
 export const resetCounter = (): CounterAction => ({
-  type: RESET_COUNTER,
+  type: ActionTypeKeys.RESET_COUNTER,
 });

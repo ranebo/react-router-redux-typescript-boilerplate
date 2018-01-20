@@ -6,11 +6,11 @@ import { PersistGate } from 'redux-persist/es/integration/react';
 // import { history } from 'app/history';
 import App from 'app/containers/App';
 // import configureStore from 'store/configureStore';
-// import LoadingPage from 'lib/components/LoadingPage';
+import LoadingPage from 'lib/components/LoadingPage';
 import 'app/app-styles';
 
 import configureStore from 'store';
-// import { Store } from 'store/types';
+// import { StoreState } from 'store/types';
 
 const { persistor, store } = configureStore();
 
@@ -23,7 +23,7 @@ const Application: React.StatelessComponent<{}> = () => (
   <AppContainer>
     <Provider store={store}>
       <PersistGate
-        // loading={ <LoadingPage /> }
+        loading={<LoadingPage />}
         onBeforeLift={onBeforeLift}
         persistor={persistor}
       >
