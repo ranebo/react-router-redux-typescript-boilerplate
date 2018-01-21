@@ -44,6 +44,12 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-loadable@^5.3.1":
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/@types/react-loadable/-/react-loadable-5.3.1.tgz#88b94edb8c418a0b3b85d1b66ebae8490b3bbc47"
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-redux@^5.0.14":
   version "5.0.14"
   resolved "https://registry.yarnpkg.com/@types/react-redux/-/react-redux-5.0.14.tgz#f3fc30dcbb2d20455a714f591cc27f77b4df09bb"

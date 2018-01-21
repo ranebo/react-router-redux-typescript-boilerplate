@@ -1,9 +1,10 @@
 import { createStore, applyMiddleware, compose, Middleware, GenericStoreEnhancer } from 'redux';
 import { persistStore } from 'redux-persist';
 // import { PersistedState } from "redux-persist/es/types";
-import { StoreState } from 'store/types';
+// import { StoreState } from 'store/types';
 import thunk from 'redux-thunk';
 import { rootReducer } from 'store/reducers';
+import * as StoreState from 'store-state';
 
 // import { createLogger } from 'redux-logger'
 // import { historyMiddleware } from 'app/history';

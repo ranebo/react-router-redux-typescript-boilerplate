@@ -1,6 +1,6 @@
 import { ActionTypeKeys, CounterAction }  from 'store/actions';
 import { Reducer } from 'redux';
-import { StoreState } from 'store/types';
+import * as StoreState from 'store-state';
 
 const initialState: StoreState.Counter = {
   value: 0,

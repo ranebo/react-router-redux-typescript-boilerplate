@@ -4,8 +4,8 @@ import { counterReducer } from 'store/reducers/all/counterReducer';
 import { PersistConfig } from 'redux-persist/es/types';
 // import { todos } from './all/todosReducer';
 // import { todoFilter } from './all/todoFilterReducer';
+import * as StoreState from 'store-state';
 import * as localForage from 'localforage';
-import { StoreState } from 'store/types';
 // import { routerReducer } from 'react-router-redux'
 import { ActionTypeKeys, ActionTypes } from 'store/actions';
 

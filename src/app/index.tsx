@@ -8,9 +8,7 @@ import App from 'app/containers/App';
 // import configureStore from 'store/configureStore';
 import LoadingPage from 'lib/components/LoadingPage';
 import 'app/app-styles';
-
 import configureStore from 'store';
-// import { StoreState } from 'store/types';
 
 const { persistor, store } = configureStore();
 

@@ -23,3 +23,4 @@
 - [ ] Look into the [Next Version](https://github.com/gaearon/react-hot-loader/tree/next) of React Hot Loader
 - [ ] More Testing
 - [ ] Maybe add [Immutable.js](https://redux.js.org/docs/recipes/UsingImmutableJS.html) for Redux Store
+- [ ] Redux-observable

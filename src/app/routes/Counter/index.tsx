@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
 import { incrementCounter, decrementCounter, resetCounter, CounterAction } from 'store/actions';
-import { StoreState } from 'store/types';
+import * as StoreState from 'store-state';
 
 interface CounterProps {
   readonly count: number;
