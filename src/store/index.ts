@@ -1,14 +1,12 @@
 import { createStore, applyMiddleware, compose, Middleware, GenericStoreEnhancer } from 'redux';
 import { persistStore } from 'redux-persist';
-// import { PersistedState } from "redux-persist/es/types";
-// import { StoreState } from 'store/types';
 import thunk from 'redux-thunk';
 import { rootReducer } from 'store/reducers';
-import * as StoreState from 'store-state';
+import * as StoreState from 'types/store/state';
 
-// import { createLogger } from 'redux-logger'
-// import { historyMiddleware } from 'app/history';
-// import DevTools from 'app/DevTools'
+import { createLogger } from 'redux-logger'
+import { historyMiddleware } from 'app/history';
+import DevTools from 'app/DevTools'
 // import api from 'store/middleware/api'
 
 // Helper function to compile store args:
@@ -30,10 +28,10 @@ const compileEnhancers = (
 const configureStore = (preloadedState?: StoreState.All) => {
 
   const enhancer = compileEnhancers(
-    [thunk/*, api, historyMiddleware*/], // Middleware
-    [/*createLogger()*/], // Dev Middleware
+    [thunk/*, api*/, historyMiddleware], // Middleware
+    [createLogger()], // Dev Middleware
     [], // Compose args
-    [/*DevTools.instrument()*/] // Dev Compose Args
+    [DevTools.instrument()] // Dev Compose Args
   );
 
   // Create Store

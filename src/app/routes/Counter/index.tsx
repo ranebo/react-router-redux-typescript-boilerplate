@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
 import { incrementCounter, decrementCounter, resetCounter, CounterAction } from 'store/actions';
-import * as StoreState from 'store-state';
+import routeWrapper from 'app/routes/routeWrapper';
+import * as StoreState from 'types/store/state';
 
 interface CounterProps {
   readonly count: number;
@@ -32,4 +33,4 @@ const mapDispatchToProps = (dispatch: Dispatch<CounterAction>) => ({
 });
 
 const ConnectedCounter = connect(mapStateToProps, mapDispatchToProps)(Counter);
-export default ConnectedCounter;
+export default routeWrapper(ConnectedCounter, 'counter');

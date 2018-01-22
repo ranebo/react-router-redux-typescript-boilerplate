@@ -1,13 +1,40 @@
-.hello {
-  text-align: center;
-  margin: 20px;
-  font-size: 48px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+/* General */
+
+.route-container {
+  padding: 0px 20px 20px 20px;
+  width: 100%;
+  /*header height*/
+  margin-top: 50px;
 }
 
-.hello button {
-  margin-left: 25px;
-  margin-right: 25px;
-  font-size: 40px;
-  min-width: 50px;
+/* Miss 404 */
+
+#missing-404 {
+}
+
+/* Header */
+
+#app-header {
+  width: 100%;
+  background-color: #ddd;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#app-header * {
+  display: inline-block;
+}
+
+#app-header .nav-item {
+  padding: 15px 25px;
+}
+
+#app-header .active-nav-item {
+  background-color: white;
+}
+
+#app-header nav {
+  display: block;
 }

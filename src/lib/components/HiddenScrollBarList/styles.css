@@ -1,0 +1,13 @@
+
+.hidden-outer-scroll, .hidden-inner-scroll {
+    width: 100%;
+}
+
+.hidden-outer-scroll {
+  overflow: hidden;
+}
+
+.hidden-inner-scroll {
+  overflow-y: scroll;
+}
+
