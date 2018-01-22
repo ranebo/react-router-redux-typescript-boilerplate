@@ -4,7 +4,7 @@ import { TODO_STATUSES } from 'store/actions';
 interface TodoProps {
   text: string;
   status: number;
-  RemoveTodoButton: any;
+  RemoveTodoButton: () => React.ReactElement<{}>;
 }
 
 const Todo = ({ text, status, RemoveTodoButton }: TodoProps) => (

@@ -8,7 +8,7 @@ import * as StoreState from 'types/store/state';
 interface TodoContainerProps {
   todos: StoreState.Todos;
   todoFilter: string;
-  removeTodo: (index: any) => void;
+  removeTodo: (index: number) => void;
 }
 
 class TodosContainer extends React.Component<TodoContainerProps, {}> {
@@ -19,23 +19,26 @@ class TodosContainer extends React.Component<TodoContainerProps, {}> {
 
   // Handle Todo Components
   getTodos = () => (
-    this.props.todos.reduce((todos, todo) => {
-      if (
-        (this.props.todoFilter === TODO_STATUSES[0] && todo.status) ||
-        (this.props.todoFilter === TODO_STATUSES[1] && !todo.status)
-      ) {return todos; }
+    this.props.todos.reduce(
+      (todos, todo) => {
+        if (
+          (this.props.todoFilter === TODO_STATUSES[0] && todo.status) ||
+          (this.props.todoFilter === TODO_STATUSES[1] && !todo.status)
+        ) {return todos; }
 
-      return [
-        ...todos,
-        (
-          <Todo
-            key={Math.random()}
-            RemoveTodoButton={() => this.removeTodoButton(todos.length)}
-            {...todo}
-          />
-        )
-      ];
-    }, [])
+        return [
+          ...todos,
+          (
+            <Todo
+              key={Math.random()}
+              RemoveTodoButton={() => this.removeTodoButton(todos.length)}
+              {...todo}
+            />
+          )
+        ];
+      },
+      []
+     )
   )
 
 // ADD IDs

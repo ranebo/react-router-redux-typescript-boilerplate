@@ -5,7 +5,7 @@ import HiddenScrollBarList from 'lib/components/HiddenScrollBarList';
 interface TodoProps {
   text: string;
   status: number;
-  RemoveTodoButton: any;
+  RemoveTodoButton: () => React.ReactElement<{}>;
 }
 
 interface TodosProps {

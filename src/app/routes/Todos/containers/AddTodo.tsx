@@ -4,12 +4,13 @@ import { addTodo } from 'store/actions';
 // import * as StoreState from 'types/store/state';
 
 interface AddTodoProps {
-  addTodo: (todo: any)  => void;
+  addTodo: (event) => void;
 }
 class AddTodo extends React.Component<AddTodoProps, {}> {
 
-  addTodo = (todo) => {
-    const payload = {text: 'Thing', title: 'JDLfj'} || todo;
+  addTodo = (event) => {
+    console.log(event )
+    const payload = {text: 'Thing', title: 'JDLfj'};
     this.props.addTodo(payload);
   }
 
