@@ -16,7 +16,7 @@ class Header extends React.PureComponent<HeaderProps, HeaderState> {
         <nav>
           <div>
             <NavLink
-              exact
+              exact={true}
               to="/"
               className="nav-item"
               activeClassName="active-nav-item"

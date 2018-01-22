@@ -9,4 +9,3 @@ const Miss404 = () => (
 );
 
 export default routeWrapper(Miss404, 'miss-404');
-

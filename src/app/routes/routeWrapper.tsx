@@ -11,10 +11,10 @@ const routeWrapper = (Component, id) =>
     render() {
       const RouteComponent = errorBoundaryWrapper(Component, RouteError);
       return (
-        <main id={ `${ id }-container` } className="route-container">
-          <RouteComponent { ...this.props } />
+        <main id={`${ id }-container`} className="route-container">
+          <RouteComponent {...this.props} />
         </main>
-      )
+      );
     }
   };
 

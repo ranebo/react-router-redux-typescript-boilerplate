@@ -30,18 +30,18 @@ interface Link {
 
 const MainMenu = () => (
   <ul className="main-nav">
-    { links.map(({ text, props }: Link) =>
-      <li key={ text }>
+    {links.map(({ text, props }: Link) =>
+      <li key={text}>
         <NavLink
           className="nav-item"
           activeClassName="active-nav-item"
-          { ...props }
+          {...props}
         >
-          { text }
+          {text}
         </NavLink>
       </li>
-    ) }
+    )}
   </ul>
-)
+);
 
-export default MainMenu
+export default MainMenu;

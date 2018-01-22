@@ -4,9 +4,9 @@ import thunk from 'redux-thunk';
 import { rootReducer } from 'store/reducers';
 import * as StoreState from 'types/store/state';
 
-import { createLogger } from 'redux-logger'
+import { createLogger } from 'redux-logger';
 import { historyMiddleware } from 'app/history';
-import DevTools from 'app/DevTools'
+import DevTools from 'app/DevTools';
 // import api from 'store/middleware/api'
 
 // Helper function to compile store args:

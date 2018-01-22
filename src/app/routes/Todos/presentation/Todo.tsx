@@ -9,8 +9,8 @@ interface TodoProps {
 
 const Todo = ({ text, status, RemoveTodoButton }: TodoProps) => (
   <div className="todo lg-pad">
-    <p>{ text }</p>
-    <p>{ TODO_STATUSES[status] }</p>
+    <p>{text}</p>
+    <p>{TODO_STATUSES[status]}</p>
     <RemoveTodoButton />
   </div>
 );

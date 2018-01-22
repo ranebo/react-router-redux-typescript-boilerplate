@@ -16,8 +16,8 @@ class HiddenScrollBarList extends React.Component<HiddenScrollBarListProps, {}> 
     // TODO: Test this, doesn't seem to get width and default doesn't do anything
 
     // Create the measurement node
-    var scrollDiv = document.createElement("div");
-    scrollDiv.className = "scrollbar-measure";
+    var scrollDiv = document.createElement('div');
+    scrollDiv.className = 'scrollbar-measure';
     document.body.appendChild(scrollDiv);
 
     // Get the scrollbar width
@@ -32,8 +32,8 @@ class HiddenScrollBarList extends React.Component<HiddenScrollBarListProps, {}> 
   render() {
     const {
       components,
-      innerClasses = "",
-      outerClasses = "",
+      innerClasses = '',
+      outerClasses = '',
       height,
       width,
     } = this.props;
@@ -41,17 +41,17 @@ class HiddenScrollBarList extends React.Component<HiddenScrollBarListProps, {}> 
 
     return (
       <section
-        className={ `hidden-outer-scroll ${ outerClasses || '' }` }
-        style={ { width: `${ width || "100%" }` } }
+        className={`hidden-outer-scroll ${outerClasses || ''}`}
+        style={{width: `${width || '100%'}`}}
       >
         <div
-          className={ `hidden-inner-scroll ${ innerClasses || '' }` }
+          className={`hidden-inner-scroll ${innerClasses || ''}`}
           style={ {
-            marginRight: `-${ scrollBarWidth }px`,
+            marginRight: `-${scrollBarWidth}px`,
             maxHeight: height || '400px',
           } }
         >
-          { components }
+          {components}
         </div>
       </section>
     );

@@ -8,10 +8,10 @@ const Layout = () => (
   <React.Fragment>
     <Route render={({ location: { pathname } }) => <Header pathname={pathname} />} />
     <Switch>
-      <Route exact path="/todos" component={ Todos } />
-      <Route path="/counter" component={Counter} />
-      <Route exact path="/" component={ Home } />
-      <Route component={ Miss404 } />
+      <Route exact={true} path="/todos" component={Todos} />
+      <Route exact={true} path="/counter" component={Counter} />
+      <Route exact={true} path="/" component={Home} />
+      <Route component={Miss404} />
     </Switch>
   </React.Fragment>
 );

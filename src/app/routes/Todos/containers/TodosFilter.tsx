@@ -4,15 +4,18 @@ import { setTodoFilter, TODO_FILTER_OPTIONS } from 'store/actions';
 
 interface TodoFilterProps {
   todoFilter: string;
-  setTodoFilter: (filter) => void;
+  setTodoFilter: (filter: string) => void;
 }
 
 class TodosFilter extends React.Component<TodoFilterProps, {}> {
 
   renderTodosButtons = () => (
     TODO_FILTER_OPTIONS.map(option => (
-      <button className={ this.props.todoFilter === option ? 'main-btn-active' : 'main-btn' } onClick={ () => this.props.setTodoFilter(option) }>
-        { option }
+      <button
+        className={this.props.todoFilter === option ? 'main-btn-active' : 'main-btn'}
+        onClick={() => this.props.setTodoFilter(option)}
+      >
+        {option}
       </button>
     ))
   )
@@ -20,17 +23,17 @@ class TodosFilter extends React.Component<TodoFilterProps, {}> {
   render() {
     return (
       <section className="fit-center">
-        { this.renderTodosButtons() }
+        {this.renderTodosButtons()}
       </section>
     );
   }
-};
+}
 
-const mapStateToProps = (state/* , ownProps */) => ({
+const mapStateToProps = (state) => ({
   todoFilter: state.todoFilter,
 });
 
-const mapDispatchToProps = (dispatch/* , ownProps */) => ({
+const mapDispatchToProps = (dispatch) => ({
   setTodoFilter: filter => dispatch(setTodoFilter(filter)),
 });
 

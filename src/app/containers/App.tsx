@@ -16,15 +16,15 @@ const setEnvTools = (AppComponent: React.StatelessComponent) => {
         <AppComponent key={Math.random()} />
         <DevTools />
       </React.Fragment>
-    )
+    );
   }
 
-  return () => <AppComponent />
+  return () => <AppComponent />;
 
 };
 
 const App = () => (
-  <div id='app'>
+  <div id="app">
     <Layout />
   </div>
 );

@@ -53,11 +53,9 @@ export const resetCounter = (): CounterAction => ({
   type: ActionTypeKeys.RESET_COUNTER,
 });
 
-
-export const TODO_STATUSES = ['Incomplete', 'Complete'] // Order Matters
+export const TODO_STATUSES = ['Incomplete', 'Complete']; // Order Matters
 export const TODO_FILTER_OPTIONS = ['All'].concat(TODO_STATUSES);
 export const DEFAULT_TODO_FILTER = TODO_FILTER_OPTIONS[0];
-
 
 export interface Todo {
   readonly status: number;
@@ -106,4 +104,4 @@ export const removeTodo = (index: number): TodoAction => ({
 export const setTodoFilter = (filter: string = DEFAULT_TODO_FILTER): SetTodoFilterAction => ({
   type: ActionTypeKeys.SET_TODO_FILTER,
   filter
-})
+});

@@ -5,7 +5,7 @@ declare module "types/store/state" {
   /**
    * Counter shape.
    */
-  export interface Todo {
+  export interface TodoEntity {
     readonly status: number;
     readonly id: number;
     readonly text: string;
@@ -14,7 +14,7 @@ declare module "types/store/state" {
 
   export type Counter = { value: number };
   export type TodoFilter = string;
-  export type Todos = Todo[];
+  export type Todos = TodoEntity[];
 
   /**
    * Compiled Store shapes.

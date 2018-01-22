@@ -6,7 +6,7 @@ import { todosReducer } from './all/todosReducer';
 import { todoFilterReducer } from './all/todoFilterReducer';
 import * as StoreState from 'types/store/state';
 import * as localForage from 'localforage';
-import { routerReducer } from 'react-router-redux'
+import { routerReducer } from 'react-router-redux';
 import { ActionTypeKeys, ActionTypes } from 'store/actions';
 
 const persistConfig: PersistConfig = {

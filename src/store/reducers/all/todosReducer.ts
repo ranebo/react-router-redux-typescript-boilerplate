@@ -11,11 +11,18 @@ export const todosReducer: Reducer<StoreState.Todos> = (
     case ActionTypeKeys.RESET_TODOS:
       return action.todos;
     case ActionTypeKeys.ADD_TODO:
-      const todo = Object.assign({}, action.todo, {status: (Math.round(Math.random())), id: Math.round(Math.random()*Math.random() + Math.random()*Math.random()) });
+      const todo = Object.assign(
+        {},
+        action.todo,
+        {
+          status: (Math.round(Math.random())),
+          id: Math.round(Math.random() * Math.random() + Math.random() * Math.random())
+        }
+       );
       return [...state, todo];
     case ActionTypeKeys.REMOVE_TODO:
-       const todos = state.slice();
-       todos.splice(action.index, 1);
+      const todos = state.slice();
+      todos.splice(action.index, 1);
       return todos;
     default:
       return state;
