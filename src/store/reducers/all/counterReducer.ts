@@ -11,11 +11,11 @@ export const counterReducer: Reducer<StoreState.Counter> = (
   action: StoreActions.CounterAction): StoreState.Counter => {
   const { value } = state;
   switch (action.type) {
-    case StoreActions.ActionTypeKeys.INCREMENT_COUNTER:
+    case StoreActions.TypeKeys.INCREMENT_COUNTER:
       return { value: value + action.delta };
-    case StoreActions.ActionTypeKeys.DECREMENT_COUNTER:
+    case StoreActions.TypeKeys.DECREMENT_COUNTER:
       return { value: value - action.delta };
-    case StoreActions.ActionTypeKeys.RESET_COUNTER:
+    case StoreActions.TypeKeys.RESET_COUNTER:
       return { value: 0 };
     default:
       return state;

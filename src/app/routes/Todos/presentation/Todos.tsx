@@ -1,7 +1,8 @@
 import * as React from 'react';
 import HiddenScrollBarList from 'lib/components/HiddenScrollBarList';
 
-// Is duplicated in Todo.tsx... must find common def
+// Types
+
 interface TodoProps {
   text: string;
   status: number;
@@ -11,6 +12,8 @@ interface TodoProps {
 interface TodosProps {
   todos: React.ReactElement<TodoProps>[];
 }
+
+// Component
 
 const Todos = ({ todos }: TodosProps) => (
   <section className="fit-center text-center expand">

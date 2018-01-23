@@ -1,3 +1,5 @@
+import { Location } from 'history';
+
 /**
  * Counter shape.
  */
@@ -22,5 +24,5 @@ export type All = {
   counter: Counter,
   todoFilter: TodoFilter,
   todos: Todos,
-  routing: { location: any }
+  routing: { location: Location }
 };

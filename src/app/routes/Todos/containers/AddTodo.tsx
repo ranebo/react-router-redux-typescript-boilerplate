@@ -4,15 +4,19 @@ import { addTodo } from 'store/actions';
 import * as StoreState from 'types/StoreState';
 import * as StoreActions from 'types/StoreActions';
 
-interface StateFromProps {
+// Types
+
+interface PropsFromState {
 }
 
-interface DispatchFromProps {
+interface PropsFromDispatch {
   addTodo: (todo: StoreState.TodoFragmentEntity) => void;
 }
 
-interface AddTodoProps extends StateFromProps, DispatchFromProps {
+interface AddTodoProps extends PropsFromState, PropsFromDispatch {
 }
+
+// Component
 
 class AddTodo extends React.Component<AddTodoProps, {}> {
 
@@ -32,13 +36,13 @@ class AddTodo extends React.Component<AddTodoProps, {}> {
   }
 }
 
-const mapStateToProps = (): StateFromProps => ({
+const mapStateToProps = (): PropsFromState => ({
 });
 
-const mapDispatchToProps = (dispatch: Dispatch<StoreActions.TodoAction>): DispatchFromProps => ({
+const mapDispatchToProps = (dispatch: Dispatch<StoreActions.TodoAction>): PropsFromDispatch => ({
   addTodo: (todo: StoreState.TodoFragmentEntity) => dispatch(addTodo(todo)),
 });
 
-const ConnectedAddTodo = connect<StateFromProps, DispatchFromProps>(mapStateToProps, mapDispatchToProps)(AddTodo);
+const ConnectedAddTodo = connect<PropsFromState, PropsFromDispatch>(mapStateToProps, mapDispatchToProps)(AddTodo);
 
 export default ConnectedAddTodo;

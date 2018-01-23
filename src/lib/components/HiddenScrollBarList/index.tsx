@@ -1,13 +1,17 @@
 import * as React from 'react';
 import './styles';
 
+// Types
+
 interface HiddenScrollBarListProps {
-  components: any[];
+  components: React.ReactElement<{}>[];
   height: string;
   width: string;
-  outerClasses: string;
+  outerClasses?: string;
   innerClasses?: string;
 }
+
+// Component
 
 class HiddenScrollBarList extends React.Component<HiddenScrollBarListProps, {}> {
 

@@ -1,6 +1,20 @@
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 
+// Types
+
+interface LinkProps {
+  readonly to: string;
+  readonly exact: true;
+}
+
+interface Link {
+  readonly text: string;
+  readonly props: LinkProps;
+}
+
+// Component
+
 const links = [
   {
     text: 'Counter',
@@ -17,16 +31,6 @@ const links = [
     }
   }
 ];
-
-interface LinkProps {
-  readonly to: string;
-  readonly exact: true;
-}
-
-interface Link {
-  readonly text: string;
-  readonly props: LinkProps;
-}
 
 const MainMenu = () => (
   <ul className="main-nav">

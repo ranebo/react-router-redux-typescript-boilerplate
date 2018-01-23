@@ -2,7 +2,7 @@ import * as React from 'react';
 import errorBoundaryWrapper from 'lib/hocs/errorBoundaryWrapper';
 import RouteError from 'app/routes/RouteError';
 
-function routeWrapper<P>(Component: React.ComponentClass<P> | React.StatelessComponent<P>, id: string) {
+function routeWrapper<P>(Component: React.ComponentType<P>, id: string) {
   return class RouteWrapperComponent extends React.Component {
     // Do stuff with component lifecycle hooks here
     // Route hit analytics

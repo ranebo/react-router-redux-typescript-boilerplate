@@ -5,12 +5,10 @@ import RouteError from 'app/routes/RouteError';
 const DefaultProdErrorComponent = RouteError;
 const DefaultDevErrorComponent = RouteError;
 
-type WrappedComponent<P> = React.ComponentClass<P> | React.StatelessComponent<P>;
-
 function errorBoundaryWrapper<P>(
-  Component: WrappedComponent<P>,
-  ProdErrorComponent: WrappedComponent<P> = DefaultProdErrorComponent,
-  DevErrorComponent: WrappedComponent<P> = DefaultDevErrorComponent) {
+  Component: React.ComponentType<P>,
+  ProdErrorComponent: React.ComponentType<P> = DefaultProdErrorComponent,
+  DevErrorComponent: React.ComponentType<P> = DefaultDevErrorComponent) {
   return class ErrorBoundaryWrapperComponent extends React.Component {
     render() {
       // TODO: Make Default ErrorComponents for Prod and Dev

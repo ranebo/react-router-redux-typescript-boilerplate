@@ -1,22 +1,27 @@
 import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
-import { removeTodo, TODO_STATUSES } from 'store/actions';
+import { removeTodo } from 'store/actions';
+import { TODO_STATUSES } from 'types/Constants';
 import Todos from 'app/routes/Todos/presentation/Todos';
 import Todo from 'app/routes/Todos/presentation/Todo';
 import * as StoreState from 'types/StoreState';
 import * as StoreActions from 'types/StoreActions';
 
-interface StateFromProps {
+// Types
+
+interface PropsFromState {
   todos: StoreState.Todos;
   todoFilter: string;
 }
 
-interface DispatchFromProps {
+interface PropsFromDispatch {
   removeTodo: (index: number) => void;
 }
 
-interface TodoContainerProps extends StateFromProps, DispatchFromProps {
+interface TodoContainerProps extends PropsFromState, PropsFromDispatch {
 }
+
+// Component
 
 class TodosContainer extends React.Component<TodoContainerProps, {}> {
 
@@ -24,7 +29,7 @@ class TodosContainer extends React.Component<TodoContainerProps, {}> {
     this.props.removeTodo(index);
   }
 
-  // Handle Todo Components
+  // Handle Todo Filters
   getTodos = () => (
     this.props.todos.reduce(
       (todos, todo) => {
@@ -60,15 +65,15 @@ class TodosContainer extends React.Component<TodoContainerProps, {}> {
   }
 }
 
-const mapStateToProps = (state: StoreState.All): StateFromProps => ({
+const mapStateToProps = (state: StoreState.All): PropsFromState => ({
   todos: state.todos,
   todoFilter: state.todoFilter,
 });
 
-const mapDispatchToProps = (dispatch: Dispatch<StoreActions.TodoAction>): DispatchFromProps => ({
+const mapDispatchToProps = (dispatch: Dispatch<StoreActions.TodoAction>): PropsFromDispatch => ({
   removeTodo: (index: number) => dispatch(removeTodo(index)),
 });
 
-const ConnectedTodos = connect<StateFromProps, DispatchFromProps>(mapStateToProps, mapDispatchToProps)(TodosContainer);
+const ConnectedTodos = connect<PropsFromState, PropsFromDispatch>(mapStateToProps, mapDispatchToProps)(TodosContainer);
 
 export default ConnectedTodos;

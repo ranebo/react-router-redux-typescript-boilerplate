@@ -1,51 +1,42 @@
 
-import {
-  ActionTypeKeys,
-  CounterAction,
-  LogoutAction,
-  TodoAction,
-  SetTodoFilterAction,
-} from 'types/StoreActions';
-import { TodoFragmentEntity, Todos } from 'types/StoreState';
+import * as StoreActions from 'types/StoreActions';
+import * as StoreState from 'types/StoreState';
+import { DEFAULT_TODO_FILTER } from 'types/Constants';
 
-export const logoutUser = (): LogoutAction => ({
-  type: ActionTypeKeys.USER_LOGOUT,
+export const logoutUser = (): StoreActions.LogoutAction => ({
+  type: StoreActions.TypeKeys.USER_LOGOUT,
 });
 
-export const incrementCounter = (delta: number = 1): CounterAction => ({
-  type: ActionTypeKeys.INCREMENT_COUNTER,
+export const incrementCounter = (delta: number = 1): StoreActions.CounterAction => ({
+  type: StoreActions.TypeKeys.INCREMENT_COUNTER,
   delta,
 });
 
-export const decrementCounter = (delta: number = 1): CounterAction => ({
-  type: ActionTypeKeys.DECREMENT_COUNTER,
+export const decrementCounter = (delta: number = 1): StoreActions.CounterAction => ({
+  type: StoreActions.TypeKeys.DECREMENT_COUNTER,
   delta,
 });
 
-export const resetCounter = (): CounterAction => ({
-  type: ActionTypeKeys.RESET_COUNTER,
+export const resetCounter = (): StoreActions.CounterAction => ({
+  type: StoreActions.TypeKeys.RESET_COUNTER,
 });
 
-export const TODO_STATUSES = ['Incomplete', 'Complete']; // Order Matters
-export const TODO_FILTER_OPTIONS = ['All'].concat(TODO_STATUSES);
-export const DEFAULT_TODO_FILTER = TODO_FILTER_OPTIONS[0];
-
-export const resetTodos = (todos: Todos = []): TodoAction => ({
-  type: ActionTypeKeys.RESET_TODOS,
+export const resetTodos = (todos: StoreState.Todos = []): StoreActions.TodoAction => ({
+  type: StoreActions.TypeKeys.RESET_TODOS,
   todos,
 });
 
-export const addTodo = (todo: TodoFragmentEntity): TodoAction => ({
-  type: ActionTypeKeys.ADD_TODO,
+export const addTodo = (todo: StoreState.TodoFragmentEntity): StoreActions.TodoAction => ({
+  type: StoreActions.TypeKeys.ADD_TODO,
   todo,
 });
 
-export const removeTodo = (index: number): TodoAction => ({
-  type: ActionTypeKeys.REMOVE_TODO,
+export const removeTodo = (index: number): StoreActions.TodoAction => ({
+  type: StoreActions.TypeKeys.REMOVE_TODO,
   index,
 });
 
-export const setTodoFilter = (filter: string = DEFAULT_TODO_FILTER): SetTodoFilterAction => ({
-  type: ActionTypeKeys.SET_TODO_FILTER,
+export const setTodoFilter = (filter: string = DEFAULT_TODO_FILTER): StoreActions.SetTodoFilterAction => ({
+  type: StoreActions.TypeKeys.SET_TODO_FILTER,
   filter
 });

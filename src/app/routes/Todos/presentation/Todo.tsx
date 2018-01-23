@@ -1,11 +1,15 @@
 import * as React from 'react';
-import { TODO_STATUSES } from 'store/actions';
+import { TODO_STATUSES } from 'types/Constants';
+
+// Types
 
 interface TodoProps {
   text: string;
   status: number;
   RemoveTodoButton: () => React.ReactElement<{}>;
 }
+
+// Component
 
 const Todo = ({ text, status, RemoveTodoButton }: TodoProps) => (
   <div className="todo lg-pad">

@@ -2,9 +2,14 @@ import * as React from 'react';
 import { History } from 'history';
 import routeWrapper from 'app/routes/routeWrapper';
 
+// Types
+
 interface HomeProps {
   history: History;
 }
+
+// Component
+
 const Home = ({ history }: HomeProps) => (
   <section className="fit-center raised lg-pad text-center">
     <p>Hello World </p>

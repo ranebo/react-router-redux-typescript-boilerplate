@@ -26,7 +26,7 @@ type PersistedStoreState = StoreState.All & PersistedState;
 
 export const rootReducer: Reducer<PersistedStoreState> =
   (state: PersistedStoreState, action: StoreActions.ActionTypes): PersistedStoreState => {
-  if (action.type === StoreActions.ActionTypeKeys.USER_LOGOUT) {
+  if (action.type === StoreActions.TypeKeys.USER_LOGOUT) {
     // const { routing } = state;
     // state = { routing };
   }

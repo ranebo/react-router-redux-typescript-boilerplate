@@ -1,17 +1,18 @@
-import { DEFAULT_TODO_FILTER } from 'store/actions';
-import { Reducer } from 'redux';
+import { DEFAULT_TODO_FILTER } from 'types/Constants';
 import * as StoreState from 'types/StoreState';
 import * as StoreActions from 'types/StoreActions';
+import createReducer from 'store/reducers/createReducer';
 
 const initialState: StoreState.TodoFilter = DEFAULT_TODO_FILTER;
 
-export const todoFilterReducer: Reducer<StoreState.TodoFilter> = (
-  state: StoreState.TodoFilter = initialState,
-  action: StoreActions.SetTodoFilterAction): StoreState.TodoFilter => {
-  switch (action.type) {
-    case StoreActions.ActionTypeKeys.SET_TODO_FILTER:
-      return action.filter;
-    default:
-      return state;
+const todoFilterHandlers = {
+  [StoreActions.TypeKeys.SET_TODO_FILTER](
+    state: StoreState.TodoFilter,
+    action: StoreActions.SetTodoFilterAction
+  ) {
+    return action.filter;
   }
 };
+
+export const todoFilterReducer =
+  createReducer<StoreState.TodoFilter>(initialState, todoFilterHandlers);

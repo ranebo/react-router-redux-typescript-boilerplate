@@ -1,4 +1,6 @@
-
+// ==============================
+// Compiled Action Types and Keys
+// ==============================
 export type ActionTypes =
   | CounterAction
   | LogoutAction
@@ -6,7 +8,7 @@ export type ActionTypes =
   | SetTodoFilterAction
   | OtherAction;
 
-export enum ActionTypeKeys {
+export enum TypeKeys {
   INCREMENT_COUNTER = 'INCREMENT_COUNTER',
   DECREMENT_COUNTER = 'DECREMENT_COUNTER',
   RESET_COUNTER = 'RESET_COUNTER',
@@ -19,20 +21,9 @@ export enum ActionTypeKeys {
   OTHER_ACTION = '__any_other_action_type__',
 }
 
-export interface OtherAction {
-  readonly type: ActionTypeKeys.OTHER_ACTION;
-}
-
-export interface LogoutAction {
-  readonly type: ActionTypeKeys.USER_LOGOUT;
-}
-
-export type CounterAction = {
-  readonly type: ActionTypeKeys.INCREMENT_COUNTER | ActionTypeKeys.DECREMENT_COUNTER,
-  readonly delta: number,
-} | {
-  readonly type: ActionTypeKeys.RESET_COUNTER,
-};
+// ================
+// Entities
+// ================
 
 export interface TodoFragmentEntity {
   text: string;
@@ -44,24 +35,46 @@ export interface TodoEntity extends TodoFragmentEntity {
   readonly id: number;
 }
 
-export interface ResetTodoAction {
-  readonly type: ActionTypeKeys.RESET_TODOS;
+// =================
+// Raw Action Types
+// =================
+export interface Action<T> {
+  readonly type: T;
+}
+
+export interface OtherAction extends Action<TypeKeys.OTHER_ACTION> {
+}
+
+export interface LogoutAction extends Action<TypeKeys.USER_LOGOUT> {
+}
+
+export interface MoveCounterAction extends Action<TypeKeys.INCREMENT_COUNTER | TypeKeys.DECREMENT_COUNTER> {
+  readonly delta: number;
+}
+
+export interface ResetCounterAction extends Action<TypeKeys.RESET_COUNTER> {
+}
+
+export interface ResetTodoAction extends Action<TypeKeys.RESET_TODOS> {
   todos: TodoEntity[];
 }
 
-export interface AddTodoAction {
-  readonly type: ActionTypeKeys.ADD_TODO;
+export interface AddTodoAction extends Action<TypeKeys.ADD_TODO> {
   todo: TodoFragmentEntity;
 }
 
-export interface RemoveTodoAction {
-  readonly type: ActionTypeKeys.REMOVE_TODO;
-  index: number;
+export interface RemoveTodoAction extends Action<TypeKeys.REMOVE_TODO> {
+  readonly index: number;
 }
+
+export interface SetTodoFilterAction extends Action<TypeKeys.SET_TODO_FILTER> {
+  filter: string;
+}
+
+// ======================
+// Composed Action Types
+// ======================
 
 export type TodoAction = ResetTodoAction | AddTodoAction | RemoveTodoAction;
 
-export interface SetTodoFilterAction {
-  readonly type: ActionTypeKeys.SET_TODO_FILTER;
-  filter: string;
-}
+export type CounterAction = MoveCounterAction | ResetCounterAction;

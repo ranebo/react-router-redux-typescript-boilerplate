@@ -2,12 +2,16 @@ import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 import MainMenu from 'app/containers/MainMenu';
 
+// Types
+
 interface HeaderProps {
   pathname: string;
 }
 
 interface HeaderState {
 }
+
+// Component
 
 class Header extends React.PureComponent<HeaderProps, HeaderState> {
   render() {
