@@ -1,6 +1,6 @@
-import { ActionTypeKeys, CounterAction }  from 'store/actions';
 import { Reducer } from 'redux';
-import * as StoreState from 'types/store/state';
+import * as StoreState from 'types/StoreState';
+import * as StoreActions from 'types/StoreActions';
 
 const initialState: StoreState.Counter = {
   value: 0,
@@ -8,14 +8,14 @@ const initialState: StoreState.Counter = {
 
 export const counterReducer: Reducer<StoreState.Counter> = (
   state: StoreState.Counter = initialState,
-  action: CounterAction): StoreState.Counter => {
+  action: StoreActions.CounterAction): StoreState.Counter => {
   const { value } = state;
   switch (action.type) {
-    case ActionTypeKeys.INCREMENT_COUNTER:
+    case StoreActions.ActionTypeKeys.INCREMENT_COUNTER:
       return { value: value + action.delta };
-    case ActionTypeKeys.DECREMENT_COUNTER:
+    case StoreActions.ActionTypeKeys.DECREMENT_COUNTER:
       return { value: value - action.delta };
-    case ActionTypeKeys.RESET_COUNTER:
+    case StoreActions.ActionTypeKeys.RESET_COUNTER:
       return { value: 0 };
     default:
       return state;

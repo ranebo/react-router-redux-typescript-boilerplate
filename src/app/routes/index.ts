@@ -2,7 +2,7 @@ import * as Loadable from 'react-loadable';
 import LoadingPage from 'lib/components/LoadingPage';
 
 // TODO: Custom Loading Pages
-const makeAsync = (loader) => (
+const makeAsync = (loader: any) => (
   Loadable({
     loader,
     delay: 2000,

@@ -2,8 +2,7 @@ import { createStore, applyMiddleware, compose, Middleware, GenericStoreEnhancer
 import { persistStore } from 'redux-persist';
 import thunk from 'redux-thunk';
 import { rootReducer } from 'store/reducers';
-import * as StoreState from 'types/store/state';
-
+import * as StoreState from 'types/StoreState';
 import { createLogger } from 'redux-logger';
 import { historyMiddleware } from 'app/history';
 import DevTools from 'app/DevTools';

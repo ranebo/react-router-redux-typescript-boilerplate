@@ -2,8 +2,8 @@ import * as React from 'react';
 import errorBoundaryWrapper from 'lib/hocs/errorBoundaryWrapper';
 import RouteError from 'app/routes/RouteError';
 
-const routeWrapper = (Component, id) =>
-  class RouteWrapperComponent extends React.Component {
+function routeWrapper<P>(Component: React.ComponentClass<P> | React.StatelessComponent<P>, id: string) {
+  return class RouteWrapperComponent extends React.Component {
     // Do stuff with component lifecycle hooks here
     // Route hit analytics
     // Listen for navigation changes
@@ -17,5 +17,6 @@ const routeWrapper = (Component, id) =>
       );
     }
   };
+}
 
 export default routeWrapper;

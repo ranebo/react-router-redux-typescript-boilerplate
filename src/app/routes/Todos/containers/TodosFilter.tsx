@@ -1,10 +1,18 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
+import { connect, Dispatch } from 'react-redux';
 import { setTodoFilter, TODO_FILTER_OPTIONS } from 'store/actions';
+import * as StoreState from 'types/StoreState';
+import * as StoreActions from 'types/StoreActions';
 
-interface TodoFilterProps {
+interface StateFromProps {
   todoFilter: string;
+}
+
+interface DispatchFromProps {
   setTodoFilter: (filter: string) => void;
+}
+
+interface TodoFilterProps extends StateFromProps, DispatchFromProps {
 }
 
 class TodosFilter extends React.Component<TodoFilterProps, {}> {
@@ -29,14 +37,17 @@ class TodosFilter extends React.Component<TodoFilterProps, {}> {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: StoreState.All): StateFromProps => ({
   todoFilter: state.todoFilter,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  setTodoFilter: filter => dispatch(setTodoFilter(filter)),
+const mapDispatchToProps = (dispatch: Dispatch<StoreActions.SetTodoFilterAction>): DispatchFromProps => ({
+  setTodoFilter: (filter: string) => dispatch(setTodoFilter(filter)),
 });
 
-const ConnectedTodosFilter = connect(mapStateToProps, mapDispatchToProps)(TodosFilter);
+const ConnectedTodosFilter = connect<StateFromProps, DispatchFromProps>(
+  mapStateToProps,
+  mapDispatchToProps
+)(TodosFilter);
 
 export default ConnectedTodosFilter;

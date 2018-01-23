@@ -1,15 +1,22 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
+import { connect, Dispatch } from 'react-redux';
 import { addTodo } from 'store/actions';
-// import * as StoreState from 'types/store/state';
+import * as StoreState from 'types/StoreState';
+import * as StoreActions from 'types/StoreActions';
 
-interface AddTodoProps {
-  addTodo: (event) => void;
+interface StateFromProps {
 }
+
+interface DispatchFromProps {
+  addTodo: (todo: StoreState.TodoFragmentEntity) => void;
+}
+
+interface AddTodoProps extends StateFromProps, DispatchFromProps {
+}
+
 class AddTodo extends React.Component<AddTodoProps, {}> {
 
-  addTodo = (event) => {
-    console.log(event )
+  addTodo = () => {
     const payload = {text: 'Thing', title: 'JDLfj'};
     this.props.addTodo(payload);
   }
@@ -25,13 +32,13 @@ class AddTodo extends React.Component<AddTodoProps, {}> {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (): StateFromProps => ({
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  addTodo: todo => dispatch(addTodo(todo)),
+const mapDispatchToProps = (dispatch: Dispatch<StoreActions.TodoAction>): DispatchFromProps => ({
+  addTodo: (todo: StoreState.TodoFragmentEntity) => dispatch(addTodo(todo)),
 });
 
-const ConnectedAddTodo = connect(mapStateToProps, mapDispatchToProps)(AddTodo);
+const ConnectedAddTodo = connect<StateFromProps, DispatchFromProps>(mapStateToProps, mapDispatchToProps)(AddTodo);
 
 export default ConnectedAddTodo;

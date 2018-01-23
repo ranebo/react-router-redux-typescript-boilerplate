@@ -1,13 +1,18 @@
 import * as React from 'react';
 
-interface ErrorBoundaryProps {
-  ErrorComponent: any;
+interface ComponentError {
+  error?: Error;
+  info?: React.ErrorInfo;
 }
 
-interface ErrorBoundaryState {
+type ErrorComponentType<P> = React.ComponentClass<P> | React.StatelessComponent<P>;
+
+interface ErrorBoundaryProps {
+  ErrorComponent: ErrorComponentType<ComponentError>;
+}
+
+interface ErrorBoundaryState extends ComponentError {
   hasError: boolean;
-  error?: string;
-  info?: string;
 }
 
 class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
@@ -16,7 +21,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
     this.state = {hasError: false};
   }
 
-  componentDidCatch(error, info) {
+  componentDidCatch(error: Error, info: React.ErrorInfo) {
     this.setState({hasError: true, error, info});
   }
 

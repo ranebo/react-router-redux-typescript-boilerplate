@@ -1,19 +1,26 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
+import { connect, Dispatch } from 'react-redux';
 import { removeTodo, TODO_STATUSES } from 'store/actions';
 import Todos from 'app/routes/Todos/presentation/Todos';
 import Todo from 'app/routes/Todos/presentation/Todo';
-import * as StoreState from 'types/store/state';
+import * as StoreState from 'types/StoreState';
+import * as StoreActions from 'types/StoreActions';
 
-interface TodoContainerProps {
+interface StateFromProps {
   todos: StoreState.Todos;
   todoFilter: string;
+}
+
+interface DispatchFromProps {
   removeTodo: (index: number) => void;
+}
+
+interface TodoContainerProps extends StateFromProps, DispatchFromProps {
 }
 
 class TodosContainer extends React.Component<TodoContainerProps, {}> {
 
-  removeTodo = (index) => {
+  removeTodo = (index: number) => {
     this.props.removeTodo(index);
   }
 
@@ -42,7 +49,7 @@ class TodosContainer extends React.Component<TodoContainerProps, {}> {
   )
 
 // ADD IDs
-  removeTodoButton = (i) => (
+  removeTodoButton = (i: number) => (
     <button onClick={() => this.removeTodo(i)}>Remove</button>
   )
 
@@ -53,15 +60,15 @@ class TodosContainer extends React.Component<TodoContainerProps, {}> {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: StoreState.All): StateFromProps => ({
   todos: state.todos,
   todoFilter: state.todoFilter,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  removeTodo: payload => dispatch(removeTodo(payload)),
+const mapDispatchToProps = (dispatch: Dispatch<StoreActions.TodoAction>): DispatchFromProps => ({
+  removeTodo: (index: number) => dispatch(removeTodo(index)),
 });
 
-const ConnectedTodos = connect(mapStateToProps, mapDispatchToProps)(TodosContainer);
+const ConnectedTodos = connect<StateFromProps, DispatchFromProps>(mapStateToProps, mapDispatchToProps)(TodosContainer);
 
 export default ConnectedTodos;

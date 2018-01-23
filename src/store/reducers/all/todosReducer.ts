@@ -1,16 +1,16 @@
-import { ActionTypeKeys, TodoAction } from 'store/actions';
 import { Reducer } from 'redux';
-import * as StoreState from 'types/store/state';
+import * as StoreState from 'types/StoreState';
+import * as StoreActions from 'types/StoreActions';
 
 const initialState: StoreState.Todos = [];
 
 export const todosReducer: Reducer<StoreState.Todos> = (
   state: StoreState.Todos = initialState,
-  action: TodoAction): StoreState.Todos => {
+  action: StoreActions.TodoAction): StoreState.Todos => {
   switch (action.type) {
-    case ActionTypeKeys.RESET_TODOS:
+    case StoreActions.ActionTypeKeys.RESET_TODOS:
       return action.todos;
-    case ActionTypeKeys.ADD_TODO:
+    case StoreActions.ActionTypeKeys.ADD_TODO:
       const todo = Object.assign(
         {},
         action.todo,
@@ -20,7 +20,7 @@ export const todosReducer: Reducer<StoreState.Todos> = (
         }
        );
       return [...state, todo];
-    case ActionTypeKeys.REMOVE_TODO:
+    case StoreActions.ActionTypeKeys.REMOVE_TODO:
       const todos = state.slice();
       todos.splice(action.index, 1);
       return todos;
