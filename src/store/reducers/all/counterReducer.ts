@@ -1,6 +1,6 @@
 import { Reducer } from 'redux';
-import * as StoreState from 'types/StoreState';
-import * as StoreActions from 'types/StoreActions';
+import * as StoreState from 'store/types/StoreState';
+import * as StoreActions from 'store/types/StoreActions';
 
 const initialState: StoreState.Counter = {
   value: 0,

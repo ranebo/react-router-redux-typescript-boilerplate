@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
 import { removeTodo } from 'store/actions';
-import { TODO_STATUSES } from 'types/Constants';
+import { TODO_STATUSES } from 'constants/todos';
 import Todos from 'app/routes/Todos/presentation/Todos';
 import Todo from 'app/routes/Todos/presentation/Todo';
-import * as StoreState from 'types/StoreState';
-import * as StoreActions from 'types/StoreActions';
+import * as StoreState from 'store/types/StoreState';
+import * as StoreActions from 'store/types/StoreActions';
 
 // Types
 

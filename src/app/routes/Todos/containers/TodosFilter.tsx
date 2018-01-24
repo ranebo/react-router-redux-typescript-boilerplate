@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
 import { setTodoFilter } from 'store/actions';
-import { TODO_FILTER_OPTIONS } from 'types/Constants';
-import * as StoreState from 'types/StoreState';
-import * as StoreActions from 'types/StoreActions';
+import { TODO_FILTER_OPTIONS } from 'constants/todos';
+import * as StoreState from 'store/types/StoreState';
+import * as StoreActions from 'store/types/StoreActions';
 
 // Types
 

@@ -1,6 +1,6 @@
-import { DEFAULT_TODO_FILTER } from 'types/Constants';
-import * as StoreState from 'types/StoreState';
-import * as StoreActions from 'types/StoreActions';
+import { DEFAULT_TODO_FILTER } from 'constants/todos';
+import * as StoreState from 'store/types/StoreState';
+import * as StoreActions from 'store/types/StoreActions';
 import createReducer from 'store/reducers/createReducer';
 
 const initialState: StoreState.TodoFilter = DEFAULT_TODO_FILTER;

@@ -1,6 +1,9 @@
+import * as StoreEntities from 'store/types/StoreEntities';
+
 // ==============================
 // Compiled Action Types and Keys
 // ==============================
+
 export type ActionTypes =
   | CounterAction
   | LogoutAction
@@ -9,6 +12,7 @@ export type ActionTypes =
   | OtherAction;
 
 export enum TypeKeys {
+  SET_USER = 'SET_USER',
   INCREMENT_COUNTER = 'INCREMENT_COUNTER',
   DECREMENT_COUNTER = 'DECREMENT_COUNTER',
   RESET_COUNTER = 'RESET_COUNTER',
@@ -21,25 +25,16 @@ export enum TypeKeys {
   OTHER_ACTION = '__any_other_action_type__',
 }
 
-// ================
-// Entities
-// ================
-
-export interface TodoFragmentEntity {
-  text: string;
-  title: string;
-}
-
-export interface TodoEntity extends TodoFragmentEntity {
-  readonly status: number;
-  readonly id: number;
-}
-
 // =================
 // Raw Action Types
 // =================
+
 export interface Action<T> {
   readonly type: T;
+}
+
+export interface SetUserAction extends Action<TypeKeys.SET_USER> {
+  info: StoreEntities.UserInfoEntity;
 }
 
 export interface OtherAction extends Action<TypeKeys.OTHER_ACTION> {
@@ -48,7 +43,8 @@ export interface OtherAction extends Action<TypeKeys.OTHER_ACTION> {
 export interface LogoutAction extends Action<TypeKeys.USER_LOGOUT> {
 }
 
-export interface MoveCounterAction extends Action<TypeKeys.INCREMENT_COUNTER | TypeKeys.DECREMENT_COUNTER> {
+export interface MoveCounterAction extends
+  Action<TypeKeys.INCREMENT_COUNTER | TypeKeys.DECREMENT_COUNTER> {
   readonly delta: number;
 }
 
@@ -56,11 +52,11 @@ export interface ResetCounterAction extends Action<TypeKeys.RESET_COUNTER> {
 }
 
 export interface ResetTodoAction extends Action<TypeKeys.RESET_TODOS> {
-  todos: TodoEntity[];
+  todos: StoreEntities.TodoEntity[];
 }
 
 export interface AddTodoAction extends Action<TypeKeys.ADD_TODO> {
-  todo: TodoFragmentEntity;
+  todo: StoreEntities.TodoFragmentEntity;
 }
 
 export interface RemoveTodoAction extends Action<TypeKeys.REMOVE_TODO> {

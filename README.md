@@ -15,12 +15,11 @@
 - [ ] Set up .env files ([info](https://github.com/bkeepers/dotenv#what-other-env-files-can-i-use))
 - [ ] Look into [React Helmet](https://github.com/nfl/react-helmet)
 - [ ] Look into more [create-react-app features](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#using-the-public-folder)
-- [ ] Add PropTypes
-- [ ] Look into [React-Relay](http://beautifulcode.1stdibs.com/2016/09/07/reconcile-relay-redux/)
+- [ ] Look into [React-Relay](http://beautifulcode.1stdibs.com/2016/09/07/reconcile-relay-redux/) or Apollo
 - [ ] Complete README
 - [ ] Setup Thunk/Request Middleware
 - [ ] Setup Auth system
 - [ ] Look into the [Next Version](https://github.com/gaearon/react-hot-loader/tree/next) of React Hot Loader
 - [ ] More Testing
 - [ ] Maybe add [Immutable.js](https://redux.js.org/docs/recipes/UsingImmutableJS.html) for Redux Store
-- [ ] Redux-observable
+- [ ] Check out Redux-observable

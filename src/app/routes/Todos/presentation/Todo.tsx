@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { TODO_STATUSES } from 'types/Constants';
+import { TODO_STATUSES } from 'constants/todos';
 
 // Types
 

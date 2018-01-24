@@ -1,7 +1,13 @@
 
-import * as StoreActions from 'types/StoreActions';
-import * as StoreState from 'types/StoreState';
-import { DEFAULT_TODO_FILTER } from 'types/Constants';
+import * as StoreActions from 'store/types/StoreActions';
+import * as StoreState from 'store/types/StoreState';
+import * as StoreEntities from 'store/types/StoreEntities';
+import { DEFAULT_TODO_FILTER } from 'constants/todos';
+
+export const setUser = (info: StoreEntities.UserInfoEntity): StoreActions.SetUserAction => ({
+  type: StoreActions.TypeKeys.SET_USER,
+  info,
+})
 
 export const logoutUser = (): StoreActions.LogoutAction => ({
   type: StoreActions.TypeKeys.USER_LOGOUT,
@@ -26,7 +32,7 @@ export const resetTodos = (todos: StoreState.Todos = []): StoreActions.TodoActio
   todos,
 });
 
-export const addTodo = (todo: StoreState.TodoFragmentEntity): StoreActions.TodoAction => ({
+export const addTodo = (todo: StoreEntities.TodoFragmentEntity): StoreActions.TodoAction => ({
   type: StoreActions.TypeKeys.ADD_TODO,
   todo,
 });

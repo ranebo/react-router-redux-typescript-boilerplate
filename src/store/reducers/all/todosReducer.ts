@@ -1,6 +1,6 @@
 import { Reducer } from 'redux';
-import * as StoreState from 'types/StoreState';
-import * as StoreActions from 'types/StoreActions';
+import * as StoreState from 'store/types/StoreState';
+import * as StoreActions from 'store/types/StoreActions';
 
 const initialState: StoreState.Todos = [];
 
@@ -29,8 +29,9 @@ export const todosReducer: Reducer<StoreState.Todos> = (
   }
 };
 
-// import * as StoreState from 'types/StoreState';
-// import * as StoreActions from 'types/StoreActions';
+// Problem with dot notation lookup for action types
+// import * as StoreState from 'store/types/StoreState';
+// import * as StoreActions from 'store/types/StoreActions';
 // import createReducer from 'store/reducers/createReducer';
 
 // const initialState: StoreState.Todos = [];

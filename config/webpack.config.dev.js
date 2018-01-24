@@ -102,7 +102,7 @@ module.exports = {
       app: path.resolve(paths.appSrc, 'app'),
       lib: path.resolve(paths.appSrc, 'lib'),
       store: path.resolve(paths.appSrc, 'store'),
-      types: path.resolve(paths.appSrc, 'types'),
+      constants: path.resolve(paths.appSrc, 'constants'),
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
