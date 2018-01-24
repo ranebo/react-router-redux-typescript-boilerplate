@@ -7,7 +7,7 @@ import { DEFAULT_TODO_FILTER } from 'constants/todos';
 export const setUser = (info: StoreEntities.UserInfoEntity): StoreActions.SetUserAction => ({
   type: StoreActions.TypeKeys.SET_USER,
   info,
-})
+});
 
 export const logoutUser = (): StoreActions.LogoutAction => ({
   type: StoreActions.TypeKeys.USER_LOGOUT,

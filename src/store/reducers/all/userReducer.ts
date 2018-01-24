@@ -7,7 +7,7 @@ const initialState: StoreState.User = {
   info: {},
 });
 
-const authHandlers = {
+const userHandlers = {
   [StoreActions.TypeKeys.SET_USER](
     state: StoreState.User,
     action: StoreActions.SetUserAction
@@ -19,4 +19,4 @@ const authHandlers = {
   },
 };
 
-export const auth = createReducer<StoreState.User>(initialState, authHandlers);
+export const userReducer = createReducer<StoreState.User>(initialState, userHandlers);

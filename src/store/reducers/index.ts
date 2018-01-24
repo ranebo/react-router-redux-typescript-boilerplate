@@ -1,4 +1,4 @@
-import { persistCombineReducers, PersistedState } from 'redux-persist';
+import { persistCombineReducers } from 'redux-persist';
 import { Reducer } from 'redux';
 import { counterReducer } from 'store/reducers/all/counterReducer';
 import { PersistConfig } from 'redux-persist/es/types';
@@ -22,10 +22,8 @@ const appReducer = persistCombineReducers<StoreState.All>(persistConfig, {
   routing: routerReducer
 });
 
-type PersistedStoreState = StoreState.All & PersistedState;
-
-export const rootReducer: Reducer<PersistedStoreState> =
-  (state: PersistedStoreState, action: StoreActions.ActionTypes): PersistedStoreState => {
+export const rootReducer: Reducer<StoreState.PersistedStoreState> =
+  (state: StoreState.PersistedStoreState, action: StoreActions.ActionTypes): StoreState.PersistedStoreState => {
   if (action.type === StoreActions.TypeKeys.USER_LOGOUT) {
     // const { routing } = state;
     // state = { routing };

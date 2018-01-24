@@ -1,8 +1,9 @@
 import { Location } from 'history';
+import { PersistedState } from 'redux-persist';
 import * as StoreEntities from 'store/types/StoreEntities';
 
 // ================
-// Store
+// Store Props
 // ================
 
 export type Counter = { value: number };
@@ -11,11 +12,12 @@ export type Todos = StoreEntities.TodoEntity[];
 export type User = {
   readonly isAuthenticated: boolean;
   info: StoreEntities.UserInfoEntity;
-}
+};
 
 /**
- * Compiled Store shapes.
+ * Compiled Store.
  */
+
 export type All = {
   counter: Counter,
   todoFilter: TodoFilter,
@@ -23,3 +25,9 @@ export type All = {
   user: User,
   routing: { location: Location }
 };
+
+/**
+ * Persisted Store.
+ */
+
+export type PersistedStoreState = All & PersistedState;

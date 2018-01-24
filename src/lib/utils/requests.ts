@@ -1,13 +1,13 @@
-// import { STORED_AUTH_TOKEN } from 'config/constants';
+import { STORED_AUTH_TOKEN } from 'constants/app';
 import request from 'superagent-bluebird-promise';
 // import { logout } from 'store/actions';
 
 export function internalLogin(dispatch, userInfo) {
-  localStorage.setItem('STORED_AUTH_TOKEN', userInfo.token);
+  localStorage.setItem(STORED_AUTH_TOKEN, userInfo.token);
   // dispatch(setCurrentUser(userInfo));
 }
 
-export const getAuthToken = () => `JWT ${ localStorage.getItem('STORED_AUTH_TOKEN') }`;
+export const getAuthToken = () => `JWT ${ localStorage.getItem(STORED_AUTH_TOKEN) }`;
 
 /*
 checkForAuthToken: Helper function to set JWT

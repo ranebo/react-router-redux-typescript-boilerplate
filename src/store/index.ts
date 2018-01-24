@@ -6,7 +6,7 @@ import * as StoreState from 'store/types/StoreState';
 import { createLogger } from 'redux-logger';
 import { historyMiddleware } from 'app/history';
 import DevTools from 'app/DevTools';
-// import api from 'store/middleware/api'
+import api from 'store/middleware/api';
 
 // Helper function to compile store args:
 // compose(applyMiddleware(middleware1, middlware2, ...middlewareDev), ...composeDev)
@@ -27,7 +27,7 @@ const compileEnhancers = (
 const configureStore = (preloadedState?: StoreState.All) => {
 
   const enhancer = compileEnhancers(
-    [thunk/*, api*/, historyMiddleware], // Middleware
+    [thunk, api, historyMiddleware], // Middleware
     [createLogger()], // Dev Middleware
     [], // Compose args
     [DevTools.instrument()] // Dev Compose Args
