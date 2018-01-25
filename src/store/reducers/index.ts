@@ -27,8 +27,16 @@ const appReducer = persistCombineReducers<StoreState.All>(persistConfig, {
 export const rootReducer: Reducer<StoreState.PersistedStoreState> =
   (state: StoreState.PersistedStoreState, action: StoreActions.ActionTypes): StoreState.PersistedStoreState => {
   if (action.type === StoreActions.TypeKeys.USER_LOGOUT) {
-    // const { routing } = state;
-    // state = { routing };
+    const newState: StoreState.PersistedStoreState = JSON.parse(JSON.stringify(state));
+    const keysToKeep: string[] = ['routing', '_persist'];
+    Object.keys(state).forEach((key: string) => {
+      if (keysToKeep.includes(key)) {
+        newState[key] = state[key];
+      } else {
+        newState[key] = undefined;
+      }
+    });
+    state = newState;
   }
 
   return appReducer(state, action);

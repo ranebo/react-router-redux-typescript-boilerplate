@@ -1,29 +1,25 @@
 import * as React from 'react';
 
-export interface InputValues {
-  [inputKey: string]: string | number | string[] | undefined;
+export interface FormData {
+  [key: string]: string | number | string[] | undefined;
 }
 
-export interface InputListenerProps {
-  inputData: InputValues;
-  populateInputs: (newState: InputValues) => void;
+export interface FormInputListenerProps {
+  formData: FormData;
+  populateInputs: (inputs: FormData) => void;
   updateInput: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-function withInputListener<P extends InputListenerProps>
-  (WrappedComponent: React.ComponentType<P>, inputValues: InputValues) {
+function withFormInputListener<P extends FormInputListenerProps>
+  (WrappedComponent: React.ComponentType<P>) {
     return class LogIn extends React.Component {
       constructor (props: P) {
         super(props);
         this.state = {};
       }
 
-      componentWillMount () {
-        this.populateInputs(inputValues);
-      }
-
-      populateInputs = (newState: InputValues) => {
-        this.setState(newState);
+      populateInputs = (inputs: FormData) => {
+        this.setState(inputs);
       }
 
       updateInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,7 +32,7 @@ function withInputListener<P extends InputListenerProps>
         return (
           <WrappedComponent
             {...this.props}
-            inputData={this.state}
+            formData={this.state}
             populateInputs={this.populateInputs}
             updateInput={this.updateInput}
           />
@@ -45,4 +41,4 @@ function withInputListener<P extends InputListenerProps>
     };
   }
 
-export default withInputListener;
+export default withFormInputListener;

@@ -1,13 +1,8 @@
 import * as React from 'react';
 import HiddenScrollBarList from 'lib/components/HiddenScrollBarList';
+import { TodoProps } from 'app/routes/Todos/presentation/Todo';
 
 // Types
-
-interface TodoProps {
-  text: string;
-  status: number;
-  RemoveTodoButton: () => React.ReactElement<{}>;
-}
 
 interface TodosProps {
   todos: React.ReactElement<TodoProps>[];

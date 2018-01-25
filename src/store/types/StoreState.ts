@@ -13,6 +13,7 @@ export type User = {
   readonly isAuthenticated: boolean;
   info: StoreEntities.UserInfoEntity;
 };
+export type Routing = { location: Location };
 
 /**
  * Compiled Store.
@@ -23,7 +24,7 @@ export type All = {
   todoFilter: TodoFilter,
   todos: Todos,
   user: User,
-  routing: { location: Location }
+  routing: Routing,
 };
 
 /**

@@ -3,7 +3,7 @@ import { TODO_STATUSES } from 'constants/todos';
 
 // Types
 
-interface TodoProps {
+export interface TodoProps {
   text: string;
   status: number;
   RemoveTodoButton: () => React.ReactElement<{}>;

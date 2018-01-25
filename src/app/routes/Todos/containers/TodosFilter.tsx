@@ -25,6 +25,7 @@ class TodosFilter extends React.Component<TodoFilterProps, {}> {
   renderTodosButtons = () => (
     TODO_FILTER_OPTIONS.map(option => (
       <button
+        key={option}
         className={this.props.todoFilter === option ? 'main-btn-active' : 'main-btn'}
         onClick={() => this.props.setTodoFilter(option)}
       >

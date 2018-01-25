@@ -9,6 +9,7 @@ export type ActionTypes =
   | LogoutAction
   | TodoAction
   | SetTodoFilterAction
+  | SetUserAction
   | OtherAction;
 
 export enum TypeKeys {

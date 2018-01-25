@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { connect, Dispatch } from 'react-redux';
-import withInputListener, { InputValues, InputListenerProps } from 'lib/hocs/withInputListener';
-import { login } from 'store/actions';
-import * as StoreState from 'store/types/StoreState';
 import { push } from 'react-router-redux';
+import { connect, Dispatch } from 'react-redux';
 import LoginForm from 'app/routes/Login/presentation/LoginForm';
+import { loginUser } from 'store/actions';
 import * as StoreActions from 'store/types/StoreActions';
+import * as StoreState from 'store/types/StoreState';
+import withFormInputListener, { FormData, FormInputListenerProps } from 'lib/hocs/withFormInputListener';
 
 // Types
 
@@ -15,10 +15,10 @@ interface PropsFromState {
 
 interface PropsFromDispatch {
   goToHome: () => void;
-  loginUser: (data: InputValues) => void;
+  login: (data: FormData) => Promise<any>;
 }
 
-interface LoginProps extends PropsFromState, PropsFromDispatch, InputListenerProps {
+interface LoginProps extends PropsFromState, PropsFromDispatch, FormInputListenerProps {
 }
 
 interface LoginState {
@@ -27,23 +27,24 @@ interface LoginState {
 // Component
 
 class Login extends React.Component <LoginProps, LoginState> {
-  componentDidUpdate(prevProps: LoginProps) {
+  componentWillMount() {
     const { user, goToHome } = this.props;
     if (user.isAuthenticated) { goToHome(); }
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { loginUser, inputData } = this.props;
-    loginUser(inputData);
+    const { login, formData, goToHome } = this.props;
+    login(formData).then(() => goToHome());
   }
 
   render () {
-    const { updateInput, inputData } = this.props;
+    const { updateInput, formData } = this.props;
     return (
       <section>
         <LoginForm
-          inputs={inputData}
+          formData={formData}
+          inputFields={{name: 'name'}}
           update={updateInput}
           submit={this.handleSubmit}
         />
@@ -58,11 +59,9 @@ const mapStateToProps = ({ user }: StoreState.All): PropsFromState => ({
 
 const mapDispatchToProps = (dispatch: Dispatch<StoreActions.ActionTypes>): PropsFromDispatch => ({
   goToHome: () => dispatch(push('/')),
-  loginUser: (data: InputValues) => dispatch(login(data)),
+  login: (data: FormData) => dispatch(loginUser(data)),
 });
 
 const ConnectedLogin = connect<PropsFromState, PropsFromDispatch>(mapStateToProps, mapDispatchToProps)(Login);
 
-export default withInputListener(ConnectedLogin, {
-  name: 'test'
-});
+export default withFormInputListener(ConnectedLogin);

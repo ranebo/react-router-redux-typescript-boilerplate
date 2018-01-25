@@ -24,7 +24,7 @@ app.use(express.static(app.get('root')));
 app.post('/login', function (req, res, next) {
   const exampleUser = {
     token: 'jwt_token', //TODO: look into past tokens: https://github.com/paragonie/past
-    roles: ['Admin'],
+    roles: ['user'],
     email: 'user@user.com',
     name: 'Iam Auser'
   }

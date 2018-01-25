@@ -61,7 +61,7 @@ const sendDispatchRequest = (request, requestArgs, action, processData = d => d)
     .then(res => dispatch(action(processData(res.body))))
     .catch(err => ((console.error('Dispatch Request Error:\n', err), Promise.reject(err))));
 
-export function login(reqData: StoreEntities.UserInfoEntity = {}, query: string = '') {
+export function loginUser(reqData: StoreEntities.UserInfoEntity = {}, query: string = '') {
   const url = `${API_ROOT}/login${query}`;
   return sendDispatchRequest(post, [url, reqData], setUser, (data) => (console.log(data), data));
 }

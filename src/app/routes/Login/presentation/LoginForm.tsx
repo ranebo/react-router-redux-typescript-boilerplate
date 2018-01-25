@@ -1,12 +1,13 @@
 import * as React from 'react';
-import { InputValues } from 'lib/hocs/withInputListener';
+import { FormData } from 'lib/hocs/withFormInputListener';
 
 interface LoginFormProps {
   update: (e: React.ChangeEvent<HTMLInputElement>) => void;
   submit: (e: React.FormEvent<HTMLFormElement>) => void;
-  inputs: InputValues;
+  inputFields: {[key: string]: string};
+  formData: FormData;
 }
-const LoginForm = ({ inputs, update, submit }: LoginFormProps) => (
+const LoginForm = ({ formData, inputFields, update, submit }: LoginFormProps) => (
   <div>
     <form className="raised fit-center" onSubmit={submit}>
       <label>
@@ -15,8 +16,8 @@ const LoginForm = ({ inputs, update, submit }: LoginFormProps) => (
           type="text"
           placeholder="Username"
           onChange={update}
-          name="name"
-          value={inputs.name}
+          name={inputFields.name}
+          value={formData[inputFields.name] || ''}
         />
       </label>
       <input type="submit" value="Submit" />
