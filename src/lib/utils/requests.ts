@@ -2,7 +2,7 @@ import { STORED_AUTH_TOKEN } from 'constants/app';
 import request from 'superagent-bluebird-promise';
 // import { logout } from 'store/actions';
 
-export function internalLogin(dispatch, userInfo) {
+export function internalLogin(dispatch: any, userInfo) {
   localStorage.setItem(STORED_AUTH_TOKEN, userInfo.token);
   // dispatch(setCurrentUser(userInfo));
 }
@@ -44,7 +44,7 @@ const handleServerErrors = (err, dispatch) => {
   return Promise.reject(err);
 };
 
-export const get = (url, dispatch, customToken) => {
+export const get = (url, dispatch, customToken?: string) => {
   const token = customToken || getAuthToken();
   return request
     .get(url)
@@ -54,7 +54,7 @@ export const get = (url, dispatch, customToken) => {
     .catch(err => handleServerErrors(err, dispatch));
 };
 
-export const post = (url, data, dispatch, customToken) => {
+export const post = (url, data, dispatch, customToken?: string) => {
   const token = customToken || getAuthToken();
   return request
     .post(url)
@@ -65,7 +65,7 @@ export const post = (url, data, dispatch, customToken) => {
     .catch(err => handleServerErrors(err, dispatch));
 };
 
-export const put = (url, data, dispatch, customToken) => {
+export const put = (url, data, dispatch, customToken?: string) => {
   const token = customToken || getAuthToken();
   return request
     .put(url)
@@ -76,7 +76,7 @@ export const put = (url, data, dispatch, customToken) => {
     .catch(err => handleServerErrors(err, dispatch));
 };
 
-export const del = (url, data, dispatch, customToken) => {
+export const del = (url, data, dispatch, customToken?: string) => {
   const token = customToken || getAuthToken();
   return request
     .del(url)

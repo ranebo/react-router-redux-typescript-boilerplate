@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
 import { incrementCounter, decrementCounter, resetCounter } from 'store/actions';
-import routeWrapper from 'app/routes/routeWrapper';
+import routeWrapper from 'lib/hocs/routeWrapper';
 import * as StoreState from 'store/types/StoreState';
 import * as StoreActions from 'store/types/StoreActions';
 

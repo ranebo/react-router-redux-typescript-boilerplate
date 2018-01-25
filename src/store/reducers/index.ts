@@ -3,6 +3,7 @@ import { Reducer } from 'redux';
 import { counterReducer } from 'store/reducers/all/counterReducer';
 import { PersistConfig } from 'redux-persist/es/types';
 import { todosReducer } from './all/todosReducer';
+import { userReducer } from './all/userReducer';
 import { todoFilterReducer } from './all/todoFilterReducer';
 import * as StoreState from 'store/types/StoreState';
 import * as StoreActions from 'store/types/StoreActions';
@@ -19,6 +20,7 @@ const appReducer = persistCombineReducers<StoreState.All>(persistConfig, {
   counter: counterReducer,
   todos: todosReducer,
   todoFilter: todoFilterReducer,
+  user: userReducer,
   routing: routerReducer
 });
 

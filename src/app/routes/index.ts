@@ -17,3 +17,4 @@ const makeAsync = (loader: any) => (
 export const Home = makeAsync(() => import(/* webpackChunkName: "route-home" */ './Home'));
 export const Counter = makeAsync(() => import(/* webpackChunkName: "route-counter" */ './Counter'));
 export const Todos = makeAsync(() => import(/* webpackChunkName: "route-todos" */ './Todos'));
+export const Login = makeAsync(() => import(/* webpackChunkName: "route-todos" */ './Login'));

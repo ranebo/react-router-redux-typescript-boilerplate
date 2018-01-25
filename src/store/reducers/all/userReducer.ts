@@ -5,7 +5,7 @@ import createReducer from 'store/reducers/createReducer';
 const initialState: StoreState.User = {
   isAuthenticated: false,
   info: {},
-});
+};
 
 const userHandlers = {
   [StoreActions.TypeKeys.SET_USER](

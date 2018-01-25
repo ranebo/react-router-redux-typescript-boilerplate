@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { History } from 'history';
-import routeWrapper from 'app/routes/routeWrapper';
+import routeWrapper from 'lib/hocs/routeWrapper';
 
 // Types
 
