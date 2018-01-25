@@ -9,15 +9,26 @@ import { post } from 'lib/utils/requests';
 // Actions
 // ================
 
+/**
+ *  Set User attributes.
+ * @param {string} info - The title of the book.
+ */
 export const setUser = (info: StoreEntities.UserInfoEntity): StoreActions.SetUserAction => ({
   type: StoreActions.TypeKeys.SET_USER,
   info,
 });
 
+/**
+ *  Logout User, will reset redux store.
+ */
 export const logoutUser = (): StoreActions.LogoutAction => ({
   type: StoreActions.TypeKeys.USER_LOGOUT,
 });
 
+/**
+ *  Increment Counter.
+ * @param {number} delta - Amount to increment.
+ */
 export const incrementCounter = (delta: number = 1): StoreActions.CounterAction => ({
   type: StoreActions.TypeKeys.INCREMENT_COUNTER,
   delta,
