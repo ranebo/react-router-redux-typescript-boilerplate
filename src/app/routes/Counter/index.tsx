@@ -17,8 +17,7 @@ interface PropsFromDispatch {
   reset: () => void;
 }
 
-interface CounterProps extends PropsFromState, PropsFromDispatch {
-}
+interface CounterProps extends PropsFromState, PropsFromDispatch {}
 
 // Component
 

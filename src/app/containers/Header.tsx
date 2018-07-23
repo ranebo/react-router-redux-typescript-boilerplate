@@ -13,7 +13,7 @@ interface HeaderState {}
 export default class Header extends React.PureComponent<HeaderProps, HeaderState> {
   render() {
     return (
-      <header id="app-header" className="raised" role="navigation">
+      <header id="app-header" role="navigation">
         <nav>
           <div>
             <NavLink
