@@ -5,7 +5,6 @@ import { ConnectedRouter } from 'react-router-redux';
 import { PersistGate } from 'redux-persist/es/integration/react';
 import { history } from 'app/history';
 import App from 'app/containers/App';
-import LoadingPage from 'lib/components/LoadingPage';
 import configureStore from 'store';
 import 'app/app-styles';
 
@@ -15,11 +14,11 @@ const onBeforeLift = () => {
   // take some action before the gate lifts
 };
 
-const Application = () => (
+export default () => (
   <AppContainer>
     <Provider store={store}>
       <PersistGate
-        loading={<LoadingPage />}
+        loading={<div>Loading...</div>}
         onBeforeLift={onBeforeLift}
         persistor={persistor}
       >
@@ -30,5 +29,3 @@ const Application = () => (
     </Provider>
   </AppContainer>
 );
-
-export default Application;

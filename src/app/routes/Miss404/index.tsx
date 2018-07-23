@@ -1,5 +1,5 @@
 import * as React from 'react';
-import routeWrapper from 'lib/hocs/routeWrapper';
+import routeWrapper from 'app/routes/routeWrapper';
 
 const Miss404 = () => (
   <section className="raised text-center lg-pad fit-center">

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { History } from 'history';
-import routeWrapper from 'lib/hocs/routeWrapper';
+import routeWrapper from 'app/routes/routeWrapper';
 
 // Types
 
@@ -11,10 +11,9 @@ interface HomeProps {
 // Component
 
 const Home = ({ history }: HomeProps) => (
-  <section className="fit-center raised lg-pad text-center">
-    <p>Hello World </p>
-    <button onClick={() => history.push('/counter')}>To Counter</button>
-    <button onClick={() => history.push('/todos')}>To Todos</button>
+  <section className="fit-center lg-pad text-center">
+    <h1 className="lg-pad">Hello World!</h1>
+    <button onClick={() => history.push('/counter')}>Check out our Redux Counter</button>
   </section>
 );
 

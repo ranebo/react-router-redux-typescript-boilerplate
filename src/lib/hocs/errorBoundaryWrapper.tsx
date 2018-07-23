@@ -1,18 +1,12 @@
 import * as React from 'react';
 import ErrorBoundary from 'lib/components/ErrorBoundary';
 
-import RouteError from 'app/routes/RouteError';
-const DefaultProdErrorComponent = RouteError;
-const DefaultDevErrorComponent = RouteError;
+// Example of an Higher Order Component (HoC)
+// This wraps a component to catch errors and display a custom error component
 
-function errorBoundaryWrapper<P>(
-  Component: React.ComponentType<P>,
-  ProdErrorComponent: React.ComponentType<P> = DefaultProdErrorComponent,
-  DevErrorComponent: React.ComponentType<P> = DefaultDevErrorComponent) {
+function errorBoundaryWrapper<P>(Component: React.ComponentType<P>, ErrorComponent: React.ComponentType<P>) {
   return class ErrorBoundaryWrapperComponent extends React.Component {
     render() {
-      // TODO: Make Default ErrorComponents for Prod and Dev
-      const ErrorComponent = process.env.NODE_ENV === 'development' ? DevErrorComponent : ProdErrorComponent;
       return (
         <ErrorBoundary ErrorComponent={ErrorComponent} {...this.props}>
           <Component {...this.props} />

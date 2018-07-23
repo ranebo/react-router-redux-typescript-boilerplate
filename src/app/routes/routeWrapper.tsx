@@ -2,12 +2,11 @@ import * as React from 'react';
 import errorBoundaryWrapper from 'lib/hocs/errorBoundaryWrapper';
 import RouteError from 'app/routes/RouteError';
 
+// Example of an Higher Order Component (HoC)
+// This wraps all app routes in thier own container
+
 function routeWrapper<P>(Component: React.ComponentType<P>, id: string) {
   return class RouteWrapperComponent extends React.Component {
-    // Do stuff with component lifecycle hooks here
-    // Route hit analytics
-    // Listen for navigation changes
-    // examples: https://github.com/LWJGL/lwjgl3-www/blob/master/client/containers/PageView.jsx
     render() {
       const RouteComponent = errorBoundaryWrapper(Component, RouteError);
       return (

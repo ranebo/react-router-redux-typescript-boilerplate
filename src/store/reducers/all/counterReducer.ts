@@ -8,7 +8,7 @@ const initialState: StoreState.Counter = {
 
 export const counterReducer: Reducer<StoreState.Counter> = (
   state: StoreState.Counter = initialState,
-  action: StoreActions.CounterAction): StoreState.Counter => {
+  action: StoreActions.ActionTypes): StoreState.Counter => {
   const { value } = state;
   switch (action.type) {
     case StoreActions.TypeKeys.INCREMENT_COUNTER:
@@ -16,7 +16,7 @@ export const counterReducer: Reducer<StoreState.Counter> = (
     case StoreActions.TypeKeys.DECREMENT_COUNTER:
       return { value: value - action.delta };
     case StoreActions.TypeKeys.RESET_COUNTER:
-      return { value: 0 };
+      return initialState;
     default:
       return state;
   }

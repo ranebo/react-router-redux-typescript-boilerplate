@@ -1,13 +1,24 @@
+import * as React from 'react';
 import * as Loadable from 'react-loadable';
-import LoadingPage from 'lib/components/LoadingPage';
 
-// TODO: Custom Loading Pages
-const makeAsync = (loader: any) => (
+const LoadableLoadingPage = (props: Loadable.LoadingComponentProps) => {
+  if (props.error) {
+    return <div>Error!</div>;
+  } else if (props.timedOut) {
+    return <div>Taking a long time...</div>;
+  } else if (props.pastDelay) {
+    return <div>Loading...</div>;
+  } else {
+    return null;
+  }
+};
+
+const makeAsync = loader => (
   Loadable({
     loader,
     delay: 2000,
     timeout: 30000,
-    loading: LoadingPage,
+    loading: LoadableLoadingPage,
   })
 );
 
@@ -16,5 +27,3 @@ const makeAsync = (loader: any) => (
 // instead of dynamically generated ids
 export const Home = makeAsync(() => import(/* webpackChunkName: "route-home" */ './Home'));
 export const Counter = makeAsync(() => import(/* webpackChunkName: "route-counter" */ './Counter'));
-export const Todos = makeAsync(() => import(/* webpackChunkName: "route-todos" */ './Todos'));
-export const Login = makeAsync(() => import(/* webpackChunkName: "route-todos" */ './Login'));

@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 interface LinkProps {
   readonly to: string;
-  readonly exact: true;
+  readonly exact: boolean;
 }
 
 interface Link {
@@ -23,13 +23,6 @@ const links = [
       exact: true,
     }
   },
-  {
-    text: 'Todos',
-    props: {
-      to: '/todos',
-      exact: true,
-    }
-  }
 ];
 
 const MainMenu = () => (

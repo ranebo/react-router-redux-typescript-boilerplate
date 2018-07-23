@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const RouteError = () => (
+export default () => (
   <main id="route-error-container" className="route-container">
     <section className="raised text-center lg-pad fit-center error-background">
       <h1>Something went wrong!</h1>
@@ -8,5 +8,3 @@ const RouteError = () => (
     </section>
   </main>
 );
-
-export default RouteError;

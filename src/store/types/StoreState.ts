@@ -1,34 +1,15 @@
 import { Location } from 'history';
 import { PersistedState } from 'redux-persist';
-import * as StoreEntities from 'store/types/StoreEntities';
 
-// ================
-// Store Props
-// ================
-
+// Store Prop Types
 export type Counter = { value: number };
-export type TodoFilter = string;
-export type Todos = StoreEntities.TodoEntity[];
-export type User = {
-  readonly isAuthenticated: boolean;
-  info: StoreEntities.UserInfoEntity;
-};
 export type Routing = { location: Location };
 
-/**
- * Compiled Store.
- */
-
-export type All = {
+// Compiled Store
+export type Store = {
   counter: Counter,
-  todoFilter: TodoFilter,
-  todos: Todos,
-  user: User,
   routing: Routing,
 };
 
-/**
- * Persisted Store.
- */
-
-export type PersistedStoreState = All & PersistedState;
+// Persisted Store
+export type PersistedStoreState = Store & PersistedState;

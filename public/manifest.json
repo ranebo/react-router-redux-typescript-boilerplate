@@ -1,6 +1,6 @@
 {
-  "short_name": "React Router Redux TypeScript App",
-  "name": "React Router Redux TypeScript Boilerplate",
+  "short_name": "Breadware React/Typescript Starter",
+  "name": "Breadware React/Typescript Starter Template App",
   "icons": [
     {
       "src": "favicon.ico",

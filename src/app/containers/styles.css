@@ -17,7 +17,7 @@
 
 #app-header {
   width: 100%;
-  background-color: #ddd;
+  background-color: #343c3e;
   position: fixed;
   top: 0;
   left: 0;
@@ -29,10 +29,14 @@
 
 #app-header .nav-item {
   padding: 15px 25px;
+  color: white;
+  font-weight: 100;
+  text-decoration: none;
 }
 
 #app-header .active-nav-item {
   background-color: white;
+  color: black
 }
 
 #app-header nav {
